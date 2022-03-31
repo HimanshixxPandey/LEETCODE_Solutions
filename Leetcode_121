@@ -1,0 +1,12 @@
+#Problem Number-121
+#Problem name- best time to buy and sell stocks
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+    
+        ma=float(-inf)
+        mi=float(inf)
+        for i in range(len(prices)):
+          mi=min(mi,prices[i])
+          ma=max(ma,prices[i]-mi)
+        return ma    
+        

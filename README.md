@@ -1,2 +1,2 @@
-# LEETCODE_Solutions_In_Python
+# LEETCODE_Solutions
 This repo contains all the solutions of leetcode questions in Python.

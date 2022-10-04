@@ -1,0 +1,22 @@
+class Solution {
+public int minvalue=Integer.MAX_VALUE;
+public int prev = Integer.MAX_VALUE;
+public boolean flag=false;
+public int findSecondMinimumValue(TreeNode root) {
+if(root==null)
+return prev;
+if(root.val<minvalue)
+{
+minvalue = root.val;
+}
+if(root.val>minvalue && root.val<=prev)
+{
+prev = root.val;
+flag=true;
+}
+
+    findSecondMinimumValue(root.left);
+    findSecondMinimumValue(root.right);
+    return flag==true?prev:-1;
+}
+}

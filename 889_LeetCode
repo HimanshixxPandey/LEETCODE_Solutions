@@ -1,0 +1,30 @@
+class Solution {
+     public TreeNode buildbtree(int[]preorder,int pres,int preend,int []postorder,int pst,int pend)
+    { 
+        if(pres>preend)
+    {
+        return null;
+    }    
+         TreeNode ans=new TreeNode(preorder[pres]);
+         if(pres==preend)
+         {
+             return ans;
+         }
+         int idx=pst;
+         while(postorder[idx]!=preorder[pres+1])
+        {
+            idx++;
+        }
+        int no_of_ele=idx-pst+1;
+        ans.left=buildbtree(preorder,pres+1,pres+no_of_ele,postorder,pst,idx);
+        ans.right=buildbtree(preorder,pres+no_of_ele+1,preend,postorder,idx+1,pend-1);
+        return ans;
+    }
+   
+    public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+        int n=postorder.length-1;
+       return buildbtree(preorder,0,n,postorder,0,n);
+        
+        
+    }
+}

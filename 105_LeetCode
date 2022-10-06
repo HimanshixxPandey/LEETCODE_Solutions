@@ -1,0 +1,24 @@
+class Solution {
+    public TreeNode buildbtree(int[]preorder,int pres,int preend,int []inorder,int ins,int inend)
+    { 
+        if(ins>inend)
+    {
+        return null;
+    }
+        int idx=ins;
+        while(inorder[idx]!=preorder[pres])
+        {
+            idx++;
+        }
+        int no_of_ele=idx-ins;
+        TreeNode ans=new TreeNode(preorder[pres]);
+        ans.left=buildbtree(preorder,pres+1,pres+no_of_ele,inorder,ins,idx-1);
+        ans.right=buildbtree(preorder,pres+no_of_ele+1,preend,inorder,idx+1,inend);
+        return ans;
+    }
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int len=inorder.length-1;
+         return buildbtree(preorder,0,len,inorder,0,len);
+        
+    }
+}

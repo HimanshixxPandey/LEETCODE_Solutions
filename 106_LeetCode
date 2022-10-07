@@ -1,0 +1,22 @@
+class Solution {
+   private TreeNode buildtree(int [] inorder,int isi,int iei,int[]postorder,int psi,int pei)
+    {
+        if(isi>iei)
+        {
+            return null;
+        }
+        TreeNode ans=new TreeNode(postorder[pei]);
+        int idx=isi;
+        while(inorder[idx]!=postorder[pei])
+        {
+            idx++;
+        }
+        int no_of_ele=idx-isi;
+        ans.left=buildtree(inorder,isi,idx-1,postorder,psi,psi+no_of_ele-1);
+        ans.right=buildtree(inorder,idx+1,iei,postorder,psi+no_of_ele,pei-1);
+        return ans;
+    }
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+     return buildtree(inorder,0,inorder.length-1,postorder,0,postorder.length-1);   
+    }
+}

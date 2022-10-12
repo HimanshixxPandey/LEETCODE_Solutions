@@ -1,0 +1,26 @@
+class Solution {
+    public int deepestLeavesSum(TreeNode root) {
+        Queue<TreeNode>ans=new ArrayDeque<>();
+        int sum=0;
+        ans.add(root);
+        while(ans.size()>0)
+        {
+            int s=ans.size();
+            sum=0;
+            while(s-->0)
+            {
+                TreeNode rm=ans.remove();
+                sum+=rm.val;
+                if(rm.left!=null)
+                {
+                    ans.add(rm.left);
+                }
+                if(rm.right!=null)
+                {
+                    ans.add(rm.right);
+                }
+            }
+        }
+        return sum;
+    }
+}

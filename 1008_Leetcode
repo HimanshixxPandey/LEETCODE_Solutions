@@ -1,0 +1,20 @@
+class Solution {
+    int idx=0;
+   TreeNode help(int[]preorder,int l,int r)
+    {
+        if(idx>=preorder.length||preorder[idx]<l||preorder[idx]>r)
+        {
+            return null;
+        }
+        TreeNode ans=new TreeNode(preorder[idx++]);
+        ans.left=help(preorder,l,ans.val);
+        ans.right=help(preorder,ans.val,r);
+        return ans;
+    }
+    public TreeNode bstFromPreorder(int[] preorder) {
+        int l=-(int)1e9-1;
+        int r=(int)1e9+1;
+       return help(preorder,l,r);
+        
+    }
+}

@@ -1,0 +1,37 @@
+class Solution {
+    public int findmax(int[]nums,int s,int e)
+    {   
+        int max=Integer.MIN_VALUE;
+        int ind=-1;
+        for(int i=s;i<=e;i++)
+        {
+            if(nums[i]>max)
+            {
+                max=nums[i];
+                ind=i;
+            }
+        }
+     return ind;
+    }
+    public TreeNode createbst(int []nums,int i,int end)
+    {
+        if(i>end)
+        {
+           return null;
+        }
+        if(i==end)
+        {
+            return new TreeNode(nums[i]);
+        }
+        int idx=findmax(nums,i,end);
+        TreeNode ans=new TreeNode(nums[idx]);
+        ans.left=createbst(nums,i,idx-1);
+        ans.right=createbst(nums,idx+1,end);
+        return ans;
+    }
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+         return createbst(nums,0,nums.length-1);
+        
+        
+    }
+}

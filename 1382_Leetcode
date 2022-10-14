@@ -1,0 +1,30 @@
+class Solution {
+   TreeNode help2(ArrayList<Integer>v,int s,int e)
+    {
+        if(s>e)
+        {
+            return null;
+        }
+        int m=(s+e)/2;
+        TreeNode ans=new TreeNode(v.get(m));
+        ans.left=help2(v,s,m-1);
+        ans.right=help2(v,m+1,e);
+        return ans;
+    }
+    void help1(TreeNode root,ArrayList<Integer>v)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        help1(root.left,v);
+        v.add(root.val);
+        help1(root.right,v);
+    }
+    public TreeNode balanceBST(TreeNode root) {
+        ArrayList<Integer>v=new ArrayList<>();
+        help1(root,v);
+        return help2(v,0,v.size()-1);
+        
+    }
+}

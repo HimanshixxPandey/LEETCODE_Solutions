@@ -1,0 +1,27 @@
+class Tree 
+{
+    //Function to serialize a tree and return a list containing nodes of tree.
+    
+	public void serialize(Node root, ArrayList<Integer> A) 
+	{
+	    //code here
+	    if(root==null)
+	    {
+	        return;
+	    }
+	    serialize(root.left,A);
+	    A.add(root.data);
+	    serialize(root.right,A);
+	   
+	}
+	
+	//Function to deserialize a list and construct the tree.
+	int idx=0;
+    public Node deSerialize(ArrayList<Integer> A)
+    {
+        //code here
+          for(int k:A) System.out.print(k+" ");
+       return null;
+        
+    }
+};

@@ -1,77 +1,36 @@
 class Solution {
-    class node{
-        int u;
-        int v;
-        int w;
-        node(int u,int v,int w)
-        {
-            this.u=u;
-            this.v=v;
-            this.w=w;
-        }
-    }
-    int par[];
-    int rank[];
-    int find(int mem)
-    {
-        if(par[mem]==mem)
-        {
-            return mem;
-        }
-        int leader=find(par[mem]);
-        par[mem]=leader;
-        return leader;
-    }
-    public void union(int x,int y)
-    {
-        int xl=find(x);
-        int yl=find(y);
-        if(xl!=yl)
-        {
-            if(rank[xl]>rank[yl])
-            {
-                par[yl]=xl;
-            }
-            else if(rank[yl]>rank[xl])
-            {
-                par[xl]=yl;
-            }
-            else
-            {
-                par[xl]=yl;
-                rank[yl]++;
-            }
-        }
-    }
-    public int minCostConnectPoints(int[][] points) {
-        ArrayList<node>adj=new ArrayList<>();
-        int v=points.length;
-        int res=0;
-        par=new int[v];
-        rank=new int[v];
-        for(int i=0;i<v-1;i++)
-        {
-            for(int j=i+1;j<v;j++)
-            {
-                adj.add(new node(i,j,Math.abs(points[i][0]-points[j][0])+Math.abs(points[i][1]-points[j][1])));
-            }
-        }
-        Collections.sort(adj,(a,b)->(a.w-b.w));
-                        for(int i=0;i<v;i++)
-                        {
-                            par[i]=i;
-                            rank[i]=1;
-                        }
-        for(node j:adj)
-                        {
-                            if(find(j.u)!=find(j.v))
-                            {
-                                res+=j.w;
-                                union(j.u,j.v);
-                            }
-                        }
-                        return res;
+    // TC: O(n^2)
+    // SC: O(n)
+    public int minCostConnectPoints(int[][] pts) {
+        int n = pts.length; // n nodes: [0, n-1]
+        boolean[] inMST = new boolean[n];
+        inMST[0] = true;
+        int cnt = 1; // total number of nodes in MST
+        int res = 0; // total weight is now 0
+        int cur = 0; // latest node connected to be part of MST
         
+        int[] minDist = new int[n]; // min distance from MST to rest of the nodes
+        Arrays.fill(minDist, Integer.MAX_VALUE);
         
+        while (cnt < n) {
+            int next = -1;
+            
+            for (int j = 0; j < n; j++) { // n-1
+                if (inMST[j]) continue;
+                minDist[j] = Math.min(minDist[j], getDist(pts[cur], pts[j]));
+                if (next == -1 || minDist[j] < minDist[next]) next = j;
+            }
+            
+            cur = next;
+            res += minDist[cur];
+            inMST[cur] = true;
+            cnt++;
+        }
+        
+        return res;
+    }
+
+    private int getDist(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
     }
 }

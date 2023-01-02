@@ -1,0 +1,44 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        int c=0;
+        int s=0;
+        int f=0;
+        for(int i=0;i<word.length();i++)
+        {
+         char ele=word.charAt(i);
+         if(ele>=65 && ele<=90)
+         {
+             c++;
+         }
+         else
+         {
+             s++;
+         }
+         
+        }
+        System.out.println(s);
+        if(c==word.length())
+        {
+            return true;
+        }
+        else if(s==word.length())
+        {
+            return true;
+        }
+        else if(s==word.length()-1)
+        {
+            if(word.charAt(0)>=65 && word.charAt(0)<=90)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+}

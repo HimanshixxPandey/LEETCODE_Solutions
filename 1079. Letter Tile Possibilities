@@ -27,3 +27,30 @@ class Solution {
         return count;
     }
 }
+
+
+Using HashSet
+class Solution {
+    public int numTilePossibilities(String tiles) {
+        Set<String>s=new HashSet<>();
+        boolean arr[]=new boolean[tiles.length()];
+        request(s,arr,tiles,new StringBuilder());
+        return s.size()-1;
+    }
+   public void request(Set<String>s,boolean visited[],String tiles,StringBuilder sb)
+    {
+        s.add(sb.toString());
+        for(int i=0;i<tiles.length();i++)
+        {
+            if(!visited[i])
+            {
+                visited[i]=true;
+                sb.append(tiles.charAt(i));
+                request(s,visited,tiles,sb);
+                visited[i]=false;
+                sb.deleteCharAt(sb.length()-1);
+            }
+        }
+    }
+
+}

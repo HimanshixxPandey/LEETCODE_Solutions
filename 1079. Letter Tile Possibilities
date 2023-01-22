@@ -1,0 +1,29 @@
+class Solution {
+    public int numTilePossibilities(String tiles) {
+        if(tiles.length()==1)
+        {
+            return 1;
+            
+        }
+        int ans[]=new int[26];
+        for(char c:tiles.toCharArray())
+        {
+        ans[c-'A']++;
+        }
+        int c=request(ans);
+        return c;
+    }
+    int request(int arr[])
+    {   int count=0;
+        for(int i=0;i<26;i++)
+        {
+            if(arr[i]==0)
+            continue;
+            count++;
+            arr[i]--;
+            count+=request(arr);
+            arr[i]++;
+        }
+        return count;
+    }
+}

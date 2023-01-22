@@ -1,0 +1,36 @@
+class Solution {
+    public void func(int ind,String s,List<String>des,List<List<String>>ans)
+    {
+        if(ind==s.length())
+        {
+            ans.add(new ArrayList<>(des));
+            return;
+        }
+        for(int i=ind;i<s.length();i++)
+        {
+            if(ispalindrome(s,ind,i))
+            {
+                des.add(s.substring(ind,i+1));
+                func(i+1,s,des,ans);
+                des.remove(des.size()-1);
+            }
+        }
+    }
+    public boolean ispalindrome(String s,int l ,int r)
+    {
+        while(l<r)
+        {
+            if(s.charAt(l)!=s.charAt(r))
+                return false;
+            l++;
+            r--;
+        }
+        return true;
+    }
+    public List<List<String>> partition(String s) {
+        List<List<String>>ans=new ArrayList<>();
+        List<String>des=new ArrayList<>();
+        func(0,s,des,ans);
+        return ans;
+    }
+}

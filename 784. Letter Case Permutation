@@ -1,0 +1,28 @@
+class Solution {
+    List<String>ans;
+    public List<String> letterCasePermutation(String s) {
+        ans=new ArrayList<>();
+        String str="";
+        dfs(0,str,s);
+        return ans;
+    }
+    void dfs(int i,String str,String s)
+    {
+        if(str.length()==s.length())
+        {
+            ans.add(str);
+        }
+        if(i<s.length()&&Character.isDigit(s.charAt(i)))
+        {
+            dfs(i+1,str+s.charAt(i),s);
+        }
+        else
+        {   if(i<s.length())
+        {
+            dfs(i+1,str+Character.toUpperCase(s.charAt(i)),s);
+            dfs(i+1,str+Character.toLowerCase(s.charAt(i)),s);
+        }
+        }
+
+    }
+}

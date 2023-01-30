@@ -1,0 +1,35 @@
+class Solution {
+    
+boolean[] vis = new boolean[10]; 
+String res,pat="";
+    public String smallestNumber(String pattern) {
+        this.pat=pattern;
+        for(int i=1;i<10;i++)
+        {
+             if(dfs(i,0,i+""))break;
+             vis[i]=false;
+        }
+        return res;
+    }
+    boolean dfs(int start,int idx,String ans)
+    {
+        if(idx==pat.length())
+        {
+            res=ans;
+            System.out.print(res);
+            return true;
+        }
+        vis[start]=true;
+        boolean flag=pat.charAt(idx)=='I';
+         for(int i=flag?start+1:1;(flag&&i<=9)||(!flag&&i<=start-1);i++)
+            {
+                 if(vis[i])
+                 continue;
+          
+               if(dfs(i,idx+1,ans+i))
+                   return true;
+               vis[i]=false;
+            }
+        return false;
+    }
+}

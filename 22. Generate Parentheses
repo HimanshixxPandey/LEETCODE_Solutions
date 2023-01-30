@@ -1,0 +1,23 @@
+class Solution {
+     List<String>ans;
+    public List<String> generateParenthesis(int n) {
+       ans=new ArrayList<>();
+       String res="";
+       printparenthesis(0,0,n,res);
+       return ans;
+    }
+    void printparenthesis(int open,int close,int n,String res)
+    {   if(close==n)
+    {  
+        ans.add(res);
+    }
+        if(open>close)
+        {  
+            printparenthesis(open,close+1,n,res+')');
+        }
+        if(open<n)
+        {
+            printparenthesis(open+1,close,n,res+'(');
+        }
+    }
+}

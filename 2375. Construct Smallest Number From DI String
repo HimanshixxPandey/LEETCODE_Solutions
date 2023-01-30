@@ -33,3 +33,28 @@ String res,pat="";
         return false;
     }
 }
+
+
+
+
+class Solution {
+    public String smallestNumber(String pattern) {
+        StringBuilder str = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
+        char ch='1';
+        
+        for(int i=0;i<pattern.length();i++)
+        {
+            temp.append(ch++);
+            if(pattern.charAt(i)=='I')
+            {
+                str.append(temp.reverse());
+                temp=new StringBuilder();
+            }
+        }
+        temp.append(ch++);
+        str.append(temp.reverse());
+        return str.toString();
+        
+    }
+}

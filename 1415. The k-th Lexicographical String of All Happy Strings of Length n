@@ -1,0 +1,30 @@
+class Solution {
+    List<String>list;
+    public String getHappyString(int n, int k) {
+        list=new ArrayList<>();
+        char ch[]=new char[]{'a','b','c'};
+        String ans="";
+        helper(n,ans,ch);
+        if(list.size()>=k)
+        {
+            ans=list.get(k-1);
+        }
+        return ans;
+        
+    }
+    void helper(int n,String res,char []ch)
+    {
+        if(n==0)
+        {
+            list.add(res);
+            return;
+        }
+        for(int i=0;i<ch.length;i++)
+        {
+            if(res=="" || res.charAt(res.length()-1)!=ch[i])
+            {
+                helper(n-1,res+ch[i],ch);
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+class Solution {
+    public int findCircleNum(int[][] matrix) {
+
+    boolean []array=new boolean[matrix.length];
+    int c=0;
+    for(int i=0;i<matrix.length;i++)
+    {
+        if(!array[i])
+        {
+            dfs(array,matrix,i);
+            c++;
+        }
+    }
+    return c;
+    }
+    void dfs(boolean vis[],int[][]matrix,int i)
+    {
+        vis[i]=true;
+        for(int j=0;j<matrix[0].length;j++)
+        {
+             if(matrix[i][j]==1 && vis[j]==false)
+             {   vis[j]=true;
+                 dfs(vis,matrix,j);
+             }
+        }
+    }
+}

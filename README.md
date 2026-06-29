@@ -6,12 +6,14 @@ This repo contains all the solutions of leetcode questions in  Java and Python.
 ## Array
 |  |
 | ------- |
+| [0079-word-search](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0079-word-search) |
 | [0216-combination-sum-iii](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0216-combination-sum-iii) |
 | [1967-number-of-strings-that-appear-as-substrings-in-word](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/1967-number-of-strings-that-appear-as-substrings-in-word) |
 ## Backtracking
 |  |
 | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0017-letter-combinations-of-a-phone-number) |
+| [0079-word-search](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0079-word-search) |
 | [0131-palindrome-partitioning](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0131-palindrome-partitioning) |
 | [0216-combination-sum-iii](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0216-combination-sum-iii) |
 | [3211-generate-binary-strings-without-adjacent-zeros](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/3211-generate-binary-strings-without-adjacent-zeros) |
@@ -19,6 +21,7 @@ This repo contains all the solutions of leetcode questions in  Java and Python.
 |  |
 | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0017-letter-combinations-of-a-phone-number) |
+| [0079-word-search](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0079-word-search) |
 | [0131-palindrome-partitioning](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0131-palindrome-partitioning) |
 | [1967-number-of-strings-that-appear-as-substrings-in-word](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/1967-number-of-strings-that-appear-as-substrings-in-word) |
 | [3211-generate-binary-strings-without-adjacent-zeros](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/3211-generate-binary-strings-without-adjacent-zeros) |
@@ -34,4 +37,12 @@ This repo contains all the solutions of leetcode questions in  Java and Python.
 |  |
 | ------- |
 | [3211-generate-binary-strings-without-adjacent-zeros](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/3211-generate-binary-strings-without-adjacent-zeros) |
+## Depth-First Search
+|  |
+| ------- |
+| [0079-word-search](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0079-word-search) |
+## Matrix
+|  |
+| ------- |
+| [0079-word-search](https://github.com/HimanshixxPandey/LEETCODE_Solutions/tree/master/0079-word-search) |
 <!---LeetCode Topics End-->
